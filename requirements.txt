@@ -1,0 +1,9 @@
+# 运行依赖（Python 3.10+，推荐 3.12 / 3.13）
+#
+# 说明：
+#   - 直接依赖只有企业微信官方 SDK 与 aiohttp；其余（cryptography/websockets 等）
+#     由它们自动带入，版本见 wheels/（Windows 离线安装包）。
+#   - 在线安装：pip install -r requirements.txt
+#   - 离线安装：pip install --no-index --find-links=wheels -r requirements.txt
+wecom-aibot-python-sdk==1.0.2
+aiohttp==3.14.5

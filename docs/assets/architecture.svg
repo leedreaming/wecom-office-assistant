@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="'Microsoft YaHei','PingFang SC','Segoe UI',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="wecom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="bridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="dsh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="api" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4ade80"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="60" y="62" fill="#f8fafc" font-size="30" font-weight="700">企业微信办公助手 · 架构总览</text>
+  <text x="60" y="94" fill="#94a3b8" font-size="16">WeCom Office Assistant — 手机一句话，电脑真执行，结果回手机（不抢鼠标 / 无需公网 / 无需端口映射）</text>
+
+  <!-- Phone -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="180" width="230" height="200" rx="18" fill="url(#phone)"/>
+  </g>
+  <text x="175" y="226" fill="#082f49" font-size="20" font-weight="700" text-anchor="middle">📱 手机企业微信</text>
+  <text x="175" y="262" fill="#082f49" font-size="15" text-anchor="middle">发送文字 / 语音</text>
+  <text x="175" y="288" fill="#082f49" font-size="15" text-anchor="middle">接收回复 / 文件卡片</text>
+  <text x="175" y="330" fill="#0c4a6e" font-size="13" text-anchor="middle">/status  /stop  /new  /help</text>
+
+  <!-- WeCom gateway -->
+  <g filter="url(#shadow)">
+    <rect x="370" y="180" width="270" height="200" rx="18" fill="url(#wecom)"/>
+  </g>
+  <text x="505" y="226" fill="#052e16" font-size="20" font-weight="700" text-anchor="middle">企业微信开放平台</text>
+  <text x="505" y="262" fill="#052e16" font-size="15" text-anchor="middle">智能机器人 · WebSocket 长连接</text>
+  <text x="505" y="292" fill="#052e16" font-size="13" text-anchor="middle">认证（Bot ID + Secret）</text>
+  <text x="505" y="316" fill="#052e16" font-size="13" text-anchor="middle">回调帧 / 流式回复 / 主动推送 / 素材上传</text>
+  <text x="505" y="350" fill="#065f46" font-size="12" text-anchor="middle">wss://openws.work.weixin.qq.com</text>
+
+  <!-- Bridge -->
+  <g filter="url(#shadow)">
+    <rect x="720" y="150" width="420" height="270" rx="18" fill="url(#bridge)"/>
+  </g>
+  <text x="930" y="194" fill="#2e1065" font-size="20" font-weight="700" text-anchor="middle">wecom_bridge.py（本机 / U 盘 / 云主机）</text>
+  <text x="930" y="224" fill="#3b0764" font-size="14" text-anchor="middle">会话隔离 · 意图分流 · 执行端路由 · 进度 · 文件回传</text>
+  <rect x="748" y="244" width="364" height="44" rx="10" fill="#ede9fe" opacity="0.95"/>
+  <text x="930" y="272" fill="#4c1d95" font-size="14" text-anchor="middle">engine = auto | dsh | api</text>
+  <rect x="748" y="300" width="364" height="44" rx="10" fill="#ede9fe" opacity="0.95"/>
+  <text x="930" y="328" fill="#4c1d95" font-size="14" text-anchor="middle">长任务：45s 进度 · &gt;10min 主动推送 · 完成通知</text>
+  <rect x="748" y="356" width="364" height="40" rx="10" fill="#ede9fe" opacity="0.95"/>
+  <text x="930" y="382" fill="#4c1d95" font-size="14" text-anchor="middle">安全：API 模式禁止发文件（防注入外发）</text>
+
+  <!-- DSH -->
+  <g filter="url(#shadow)">
+    <rect x="720" y="500" width="195" height="150" rx="18" fill="url(#dsh)"/>
+  </g>
+  <text x="817" y="542" fill="#451a03" font-size="17" font-weight="700" text-anchor="middle">DeepSeek Harness</text>
+  <text x="817" y="570" fill="#451a03" font-size="13" text-anchor="middle">桌面版本机真执行</text>
+  <text x="817" y="596" fill="#451a03" font-size="13" text-anchor="middle">命令 / 读写文件 / 生成文档</text>
+  <text x="817" y="624" fill="#78350f" font-size="12" text-anchor="middle">本机 HTTP API · 端口自动发现</text>
+
+  <!-- API -->
+  <g filter="url(#shadow)">
+    <rect x="945" y="500" width="195" height="150" rx="18" fill="url(#api)"/>
+  </g>
+  <text x="1042" y="542" fill="#4c0519" font-size="17" font-weight="700" text-anchor="middle">DeepSeek API</text>
+  <text x="1042" y="570" fill="#4c0519" font-size="13" text-anchor="middle">纯聊天兜底</text>
+  <text x="1042" y="596" fill="#4c0519" font-size="13" text-anchor="middle">OpenAI 兼容接口</text>
+  <text x="1042" y="624" fill="#881337" font-size="12" text-anchor="middle">DSH 未开启时自动切换</text>
+
+  <!-- Arrows -->
+  <line x1="290" y1="250" x2="362" y2="250" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="326" y="238" fill="#cbd5e1" font-size="12" text-anchor="middle">消息</text>
+
+  <line x1="640" y1="250" x2="712" y2="250" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="676" y="238" fill="#cbd5e1" font-size="12" text-anchor="middle">回调帧</text>
+
+  <line x1="712" y1="332" x2="640" y2="332" stroke="#4ade80" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="676" y="320" fill="#86efac" font-size="12" text-anchor="middle">回复 / 推送</text>
+
+  <line x1="640" y1="352" x2="290" y2="352" stroke="#4ade80" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="465" y="340" fill="#86efac" font-size="12" text-anchor="middle">流式回复 / 文件卡片</text>
+
+  <line x1="817" y1="420" x2="817" y2="492" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowAmber)"/>
+  <text x="700" y="460" fill="#fcd34d" font-size="12" text-anchor="middle">engine=dsh（在线）</text>
+
+  <line x1="1010" y1="420" x2="1010" y2="492" stroke="#fb7185" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1100" y="460" fill="#fda4af" font-size="12" text-anchor="middle">auto 兜底 / api</text>
+
+  <text x="60" y="690" fill="#64748b" font-size="13">MIT License · 非官方社区项目 · 与腾讯 / 深度求索无隶属关系 · 使用前请阅读 SECURITY.md</text>
+</svg>
