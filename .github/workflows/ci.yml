@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+
+jobs:
+  python-check:
+    name: Python ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-latest, ubuntu-latest ]
+        python-version: [ "3.10", "3.12", "3.13" ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compile check
+        run: python -m py_compile wecom_bridge.py selftest_engine.py
+
+      - name: Validate example config
+        shell: python
+        run: |
+          import json
+          with open("config.example.json", encoding="utf-8") as f:
+              cfg = json.load(f)
+          assert "bot_id" in cfg and "engine" in cfg
+
+      - name: SDK import check
+        run: python -c "import aibot, aiohttp; print('deps ok')"
+
+  selftest:
+    name: Offline self-test (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run offline self-test
+        continue-on-error: true   # 自测会探测本机 DSH，CI 上预期部分项跳过
+        run: python selftest_engine.py

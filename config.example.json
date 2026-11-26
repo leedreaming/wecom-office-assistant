@@ -1,0 +1,58 @@
+{
+  "bot_id": "",
+  "bot_secret": "",
+  "session_tag": "1",
+  "engine": "auto",
+  "dsh": {
+    "mode": "web",
+    "web_url": "auto",
+    "home": "auto",
+    "cwd": "workspace",
+    "timeout_ms": 900000,
+    "probe_timeout_ms": 4000,
+    "probe_ttl_ok_s": 60,
+    "probe_ttl_fail_s": 15,
+    "ports_ttl_s": 30,
+    "auto_approve": true
+  },
+  "api": {
+    "enabled": true,
+    "base_url": "https://api.deepseek.com",
+    "api_key": "",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "model": "deepseek-chat",
+    "temperature": 1.0,
+    "max_tokens": 4096,
+    "timeout_ms": 180000,
+    "history_max_turns": 20,
+    "history_max_chars": 50000,
+    "system_prompt": "",
+    "switch_note": "⚠️ 电脑端 DSH 没开，本条由 DeepSeek API 直接回复（只能聊天，不能操作电脑）。\n\n"
+  },
+  "reply": {
+    "thinking_text": "已收到，正在处理…",
+    "max_chunk": 1800,
+    "timeout_ms": 900000,
+    "new_chat_words": [
+      "/new",
+      "新对话",
+      "重新开始",
+      "清空上下文"
+    ],
+    "status_words": [
+      "/status",
+      "/状态"
+    ],
+    "help_words": [
+      "/help",
+      "/帮助",
+      "/?"
+    ],
+    "stop_words": [
+      "/stop",
+      "/停止",
+      "停止任务",
+      "取消任务"
+    ]
+  }
+}

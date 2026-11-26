@@ -1,0 +1,34 @@
+# 企业微信办公助手 - Linux systemd 常驻服务
+#
+# 适用于「电脑关机也能收到回复」的云端 / 常开小主机（仅纯聊天模式）。
+# 部署步骤见 docs/cloud-deploy.md。
+#
+# 安装：
+#   sudo cp deploy/wecom-bridge.service /etc/systemd/system/wecom-bridge.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now wecom-bridge
+#   journalctl -u wecom-bridge -f
+
+[Unit]
+Description=WeCom Office Assistant Bridge
+Documentation=https://github.com/OWNER/REPO
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# 改成你的实际部署目录
+WorkingDirectory=/opt/wecom-office-assistant
+# 改成你的实际 Python（建议用项目内 .venv）
+ExecStart=/opt/wecom-office-assistant/.venv/bin/python /opt/wecom-office-assistant/wecom_bridge.py
+Environment=PYTHONIOENCODING=utf-8
+# 推荐把 DeepSeek API Key 放环境变量，而不是写进 config.json
+# Environment=DEEPSEEK_API_KEY=sk-xxxxxxxx
+Restart=always
+RestartSec=5
+# 简单收紧权限（按需调整）
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

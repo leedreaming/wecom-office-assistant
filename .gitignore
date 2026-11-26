@@ -1,0 +1,42 @@
+# ===== 运行环境 =====
+.venv/
+venv/
+env/
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+
+# ===== 配置与凭证：绝对不要提交 =====
+config.json
+config.json.bak
+config.local.json
+*.secret
+.env
+*.pem
+*.key
+
+# ===== 运行数据 =====
+logs/
+workspace/
+*.pid
+*.log
+
+# ===== 备份 / 打包 / 临时文件 =====
+backup/
+dist/
+release/
+*.zip
+*.7z
+*.rar
+_tmp/
+_t/
+_diag/
+
+# ===== 系统与编辑器 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
